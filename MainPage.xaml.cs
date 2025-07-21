@@ -11,6 +11,8 @@
         {
                 DisplayAlert("Hello", "Welcome to LojaApp!", "Bleleza");
         }
+
+        
     }
 
 }
