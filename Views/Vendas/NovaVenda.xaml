@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LojaApp.Views.Vendas.NovaVenda"
+             Title="NovaVenda">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Button Text="voltar"
+ Clicked="inicio"/> 
+            <!-- Cliente -->
+            <Label Text="Cliente" />
+            <Entry x:Name="entryCliente" Placeholder="Nome do cliente" />
+
+            <!-- Cabeçalho da tabela -->
+            <Label Text="Itens da Venda" FontAttributes="Bold" FontSize="16" />
+            <Grid ColumnSpacing="10" RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Cabeçalhos -->
+                <Label Grid.Row="0" Grid.Column="0" Text="Produto" FontAttributes="Bold"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Qtd" FontAttributes="Bold"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="Preço" FontAttributes="Bold"/>
+                <Label Grid.Row="0" Grid.Column="3" Text="Total" FontAttributes="Bold"/>
+
+                <!-- Linha de dados -->
+                <Entry Grid.Row="1" Grid.Column="0" x:Name="entryProduto" Placeholder="Produto" />
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="entryQuantidade" Placeholder="0" Keyboard="Numeric" TextChanged="OnValorMudou" />
+                <Entry Grid.Row="1" Grid.Column="2" x:Name="entryPreco" Placeholder="0.00" Keyboard="Numeric" TextChanged="OnValorMudou" />
+                <Entry Grid.Row="1" Grid.Column="3" x:Name="entryTotal" IsReadOnly="True" TextColor="Green" />
+            </Grid>
+
+            <!-- Botão -->
+            <Button Text="Concluir Venda" Clicked="OnConcluirVendaClicked" BackgroundColor="#007aff" TextColor="White" CornerRadius="8" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

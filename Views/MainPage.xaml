@@ -22,64 +22,58 @@
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <Grid RowDefinitions="auto,auto,auto,auto, auto" ColumnDefinitions="0.5*,0.5*">
+            <Grid RowDefinitions="auto,auto,auto,auto, auto" ColumnDefinitions="0.5*,0.5*" >
 
-                <Label
+                <Button
                 Text="📦 [Cadastrar Produto]"
                 Grid.Row="0"
                 Grid.Column="0"
-                Style="{StaticResource SubHeadline}"
+                Clicked="produtosClicked" 
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
 
-                <Label
+                <Button
                 Text="🛒 [Nova Venda]"
                 Grid.Row="0"
                 Grid.Column="1"
-                Style="{StaticResource SubHeadline}"
+                Clicked="vendasClicked" 
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-                <Label
+                <Button
                 Text="🧾 [Histórico de Vendas]"
                 Grid.Row="1"
                 Grid.Column="0"
-                Style="{StaticResource SubHeadline}"
+                Clicked="vendasClicked" 
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-                <Label
+                <Button
                 Text="📊 [Relatórios]"
                 Grid.Row="1"
                 Grid.Column="1"
-                Style="{StaticResource SubHeadline}"
+                Clicked="relatoriosClicked" 
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-                <Label
+                <Button
                 Text="🧰 [Gerenciar Estoque]"
                 Grid.Row="2"
                 Grid.Column="0"
-                Style="{StaticResource SubHeadline}"
+                Clicked="estoqueClicked" 
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-                <Label
-                Text="⚙️ [Configurações]"
+                <Button
+                Text="🧾 [Cadastrar Serviço]"
                 Grid.Row="2"
                 Grid.Column="1"
-                Style="{StaticResource SubHeadline}"
+                Clicked="servicoClicked" 
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-                <Label
-                Text="🧾 [Cadastrar Serviço]"
-                Grid.Row="3"
-                Grid.Column="0"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                
 
             </Grid>
             
@@ -89,8 +83,9 @@
                 SemanticProperties.HeadingLevel="Level2"
                 Clicked="OnButtonClicked" />
 
-            <Button Text="Cadastrar Serviço"
-                 />
+            <Button
+            Text="⚙️ [Configurações]"
+            />   
 
 
         </VerticalStackLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<FlyoutPage
+<Shell
     x:Class="LojaApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -7,35 +7,9 @@
     Shell.FlyoutBehavior="Disabled"
     Title="LojaApp">
 
-    <!-- Menu lateral -->
-    <FlyoutPage.Flyout>
-        <ContentPage Title="Menu" BackgroundColor="#eeeeee">
-            <ScrollView>
-                <VerticalStackLayout Padding="20" Spacing="20">
-                    <Label Text="Menu" FontAttributes="Bold" FontSize="18" />
-                    <Button Text="Página Inicial"
-                        />
-                    <Button Text="Cadastrar Serviço"
-                        />
-                    <Button Text="Cadastrar Serviço"
-    />
-                    <Button Text="Cadastrar Serviço"
-    />
-                    <Button Text="Cadastrar Serviço"
-    />
-                </VerticalStackLayout>
-            </ScrollView>
-        </ContentPage>
-    </FlyoutPage.Flyout>
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
 
-    <!-- Conteúdo principal -->
-    <FlyoutPage.Detail>
-        <NavigationPage>
-            <x:Arguments>
-                
-            </x:Arguments>
-        </NavigationPage>
-    </FlyoutPage.Detail>
-
-    </FlyoutPage>
-
+</Shell>

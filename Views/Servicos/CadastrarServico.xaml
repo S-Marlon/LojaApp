@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LojaApp.Views.Servicos.CadastrarServico"
+             Title="CadastrarServico">
+    <ScrollView>
+    <VerticalStackLayout
+        Padding="50,20"
+Spacing="15">
+        <Label Text="Nome do Cliente" />
+        <Entry x:Name="entryNome" Placeholder="Ex: João da Silva" />
+        <Label Text="Descrição do Serviço" />
+        <Editor x:Name="entryDescricao" Placeholder="Ex: Prensagem de mangueira hidráulica..." AutoSize="TextChanges" />
+        <Label Text="Medidas / Detalhes Técnicos" />
+        <Editor x:Name="entryMedidas" Placeholder="Ex: 1/2 pol, 250 bar..." AutoSize="TextChanges" />
+        <Label Text="Materiais Utilizados" />
+        <Editor x:Name="entryMateriais" Placeholder="Ex: Mangueira, terminal macho reto..." AutoSize="TextChanges" />
+        <Label Text="Observações" />
+        <Editor x:Name="entryObs" Placeholder="Ex: Refazer se necessário..." AutoSize="TextChanges" />
+        <Label Text="Código Gerado" />
+        <Entry x:Name="entryCodigo" IsReadOnly="True" TextColor="Green" FontAttributes="Bold" />
+        <Button Text="Salvar Serviço" />
+        <Label Text="Serviços Recentes:" FontAttributes="Bold" Margin="0,20,0,0"/>
+        <CollectionView x:Name="servicosList" HeightRequest="200">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Padding="5" Margin="0,5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Codigo}" FontAttributes="Bold"/>
+                            <Label Text="{Binding NomeCliente}" FontSize="12"/>
+                            <Label Text="{Binding Descricao}" FontSize="11" LineBreakMode="TailTruncation"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="voltar"
+                Clicked="inicio"/>
+
+    </VerticalStackLayout>
+        </ScrollView>
+</ContentPage>
