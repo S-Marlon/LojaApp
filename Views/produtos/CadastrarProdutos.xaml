@@ -3,13 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LojaApp.Views.produtos.CadastrarProdutos"
              Title="CadastrarProdutos">
-    <VerticalStackLayout>
-        <Label 
+   
+    
+       
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="15">
+                
+ <Label 
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
         <Button Text="voltar"
         Clicked="inicio"/>
-    </VerticalStackLayout>
+                
+                <Label Text="Cadastro de Produto"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+                <Entry x:Name="nomeEntry"
+                   Placeholder="Nome do Produto" />
+
+                <Entry x:Name="categoriaEntry"
+                   Placeholder="Categoria" />
+
+                <Entry x:Name="quantidadeEntry"
+                   Placeholder="Quantidade"
+                   Keyboard="Numeric" />
+
+                <Entry x:Name="estoqueMinimoEntry"
+                   Placeholder="Estoque Mínimo"
+                   Keyboard="Numeric" />
+
+                <Button Text="Salvar Produto"
+                    BackgroundColor="#2e86de"
+                    TextColor="White"
+                    />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    
+    
 </ContentPage>

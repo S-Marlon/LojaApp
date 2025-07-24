@@ -10,6 +10,9 @@
                FontAttributes="Bold"
                HorizontalOptions="Center" />
 
+        <Button Text="voltar"
+Clicked="inicio"/>
+
         <!-- Cabeçalho da tabela -->
         <Grid ColumnSpacing="10" Padding="5">
             <Grid.ColumnDefinitions>

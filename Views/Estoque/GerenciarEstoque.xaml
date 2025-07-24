@@ -4,12 +4,50 @@
              x:Class="LojaApp.Views.Estoque.GerenciarEstoque"
              Title="GerenciarEstoque">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        
 
         <Button Text="voltar"
         Clicked="inicio"/>
+
+        <Label Text="Estoque de Produtos" 
+               FontSize="20" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <!-- Cabeçalho -->
+        <Grid ColumnSpacing="10" Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1.5*" />
+                <ColumnDefinition Width="1.5*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Produto" FontAttributes="Bold" />
+            <Label Grid.Column="1" Text="Categoria" FontAttributes="Bold" />
+            <Label Grid.Column="2" Text="Qtd." FontAttributes="Bold" HorizontalTextAlignment="End"/>
+            <Label Grid.Column="3" Text="Mín." FontAttributes="Bold" HorizontalTextAlignment="End"/>
+        </Grid>
+
+        <!-- Lista de produtos -->
+        <CollectionView x:Name="estoqueCollection" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnSpacing="10" Padding="5" BackgroundColor="{Binding EstoqueBaixo, Converter={StaticResource BoolToColorConverter}}" Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1.5*" />
+                            <ColumnDefinition Width="1.5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding Nome}" />
+                        <Label Grid.Column="1" Text="{Binding Categoria}" />
+                        <Label Grid.Column="2" Text="{Binding Quantidade}" HorizontalTextAlignment="End"/>
+                        <Label Grid.Column="3" Text="{Binding EstoqueMinimo}" HorizontalTextAlignment="End"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
