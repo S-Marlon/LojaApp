@@ -14,6 +14,7 @@ public class ServicoViewModel : INotifyPropertyChanged
             new ServicoModel { NomeCliente = "Maria Oliveira", TipoServico = "Limpeza de Poço", Data = "23/07/2025", Garantia = "na garantia", Codigoservico = "34545667" },
             new ServicoModel { NomeCliente = "Pedro Santos", TipoServico = "Reparo Elétrico", Data = "20/07/2025", Garantia = "Fora da garantia", Codigoservico = "3457"  },
         };
+
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

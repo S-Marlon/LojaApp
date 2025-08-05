@@ -15,4 +15,13 @@ namespace LojaApp.Views.Servicos
         public string Codigoservico { get; set; }
 
     }
+
+    public class ServicoModelo
+    {
+        public string Produto { get; set; }
+        public string Quantidade  { get; set; }
+        public string ValorUnitario { get; set; }
+        public string ValorTotal { get; set; }
+
+    }
 }

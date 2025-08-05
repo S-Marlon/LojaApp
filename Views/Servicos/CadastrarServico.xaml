@@ -17,7 +17,7 @@
                     <ColumnDefinition Width="3*" />
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
-
+              
                 <!-- 🧾 FORMULÁRIO PRINCIPAL -->
                 <Grid Grid.Column="0" RowSpacing="15">
                     <Grid.RowDefinitions>
@@ -56,19 +56,19 @@
                         FontAttributes="Bold"
                         HorizontalOptions="Start"/>
 
-                        <CollectionView ItemsSource="{Binding Servicos}">
+                        <CollectionView ItemsSource="{Binding Material}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Frame BackgroundColor="#3A3A3A" CornerRadius="10"
 Padding="10" Margin="5">
                                         <HorizontalStackLayout Spacing="55">
-                                            <Label Text="{Binding NomeCliente}" TextColor="White" FontAttributes="Bold"/>
-                                           
-                                                <Label Text="{Binding TipoServico}" TextColor="LightGray"  FontSize="10"/>
-                                                <Label Text="{Binding Data}" TextColor="Gray" FontSize="10"/>
-                                            
-                                                <Label Text="{Binding Garantia}" TextColor="Gray" FontSize="10"/>
-                                                <Label Text="{Binding Codigoservico}" TextColor="Gray" FontSize="10"/>
+                                            <Label Text="{Binding Produto}" TextColor="White" FontAttributes="Bold"/>
+
+                                            <Label Text="{Binding Quantidade}" TextColor="LightGray"  FontSize="10"/>
+                                            <Label Text="{Binding ValorUnitario}" TextColor="Gray" FontSize="10"/>
+
+                                            <Label Text="{Binding ValorTotal}" TextColor="Gray" FontSize="10"/>
+                                                
                                             
 
                                         </HorizontalStackLayout>

@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage (new AppShell()); // Agora usa o Flyout
+            MainPage = new AppShell(); // Agora usa o Flyout
         }
 
 
