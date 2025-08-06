@@ -48,7 +48,11 @@ namespace LojaApp
             Navigation.PushAsync(new NovaVenda());
         }
 
-
+        private async void OnBotaoServicosClicked(object sender, EventArgs e)
+        {
+            // Navega para a rota registrada
+            await Shell.Current.GoToAsync("servicosPage");
+        }
 
 
     }

@@ -12,7 +12,9 @@ public class MaterialModelo : INotifyPropertyChanged
         {
           new ServicoModelo { Produto = "Mangueira", Quantidade = "0.7", ValorUnitario = "12", ValorTotal = "23"},
           new ServicoModelo { Produto = "Jic 37", Quantidade = "2", ValorUnitario = "6", ValorTotal = "43"},
-          new ServicoModelo { Produto = "Capa ", Quantidade = "2", ValorUnitario = "3", ValorTotal = "44"},
+          new ServicoModelo { Produto = "s ", Quantidade = "2", ValorUnitario = "3", ValorTotal = "44"},
+          new ServicoModelo { Produto = "sad ", Quantidade = "2", ValorUnitario = "3", ValorTotal = "44"}
+
         };
 
     }

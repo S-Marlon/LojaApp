@@ -7,8 +7,9 @@ public partial class GerenciarEstoque : ContentPage
 		InitializeComponent();
 	}
 
-    private void inicio(object sender, EventArgs e)
+    private async void inicio(object sender, EventArgs e)
     {
-        Navigation.PopAsync();
+        // A forma correta de voltar usando a navegação do Shell.
+        await Shell.Current.GoToAsync("..");
     }
 }
