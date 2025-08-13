@@ -1,10 +1,10 @@
-namespace LojaApp.Views.Servicos;
+namespace LojaApp.Pages.Servicos;
 
 public partial class CadastrarServico : ContentPage
 {
-	public CadastrarServico()
-	{
-		InitializeComponent();
+    public CadastrarServico()
+    {
+        InitializeComponent();
         BindingContext = new MaterialModelo();
     }
 

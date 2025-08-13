@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LojaApp.Views.Servicos
+﻿namespace LojaApp.Pages.Servicos
 {
     public class ServicoModel
     {
@@ -19,7 +13,7 @@ namespace LojaApp.Views.Servicos
     public class ServicoModelo
     {
         public string Produto { get; set; }
-        public string Quantidade  { get; set; }
+        public string Quantidade { get; set; }
         public string ValorUnitario { get; set; }
         public string ValorTotal { get; set; }
 

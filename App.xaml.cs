@@ -9,7 +9,7 @@
             MainPage = new AppShell(); // Agora usa o Flyout
         }
 
-        
+
 
     }
 }

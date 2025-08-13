@@ -3,86 +3,81 @@
     x:Class="LojaApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:LojaApp"
-    xmlns:servicos="clr-namespace:LojaApp.Views.Servicos"
+    xmlns:local="clr-namespace:LojaApp.Pages"
+    xmlns:servicos="clr-namespace:LojaApp.Pages.Servicos"
+    xmlns:venda="clr-namespace:LojaApp.Pages.Vendas"
+    xmlns:estoque="clr-namespace:LojaApp.Pages.Estoque"
+    xmlns:relatorios="clr-namespace:LojaApp.Pages.Relatorios"
+    xmlns:produtos="clr-namespace:LojaApp.Pages.produtos"
     FlyoutWidth="300"
-    Shell.FlyoutBehavior="Locked"
-    Title="LojaApp">
+    
+   Title="LojaApp"
+    >
 
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid Padding="10" ColumnDefinitions="Auto,*" VerticalOptions="Center">
+                <!-- Ícone do menu -->
+                <VerticalStackLayout VerticalOptions="Center">
+                      <Image
+                    Source="{Binding Icon}"
+                    WidthRequest="24"
+                    HeightRequest="24"
+                    VerticalOptions="Center" />
 
+                <!-- Título -->
+                <Label
+                    Text="{Binding Title}"
+                    FontSize="16"
+                    VerticalOptions="Center"
+                    Margin="10,0,0,0" />
+                </VerticalStackLayout>
+              
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    
+    <Shell.FlyoutBehavior>
+        <OnPlatform x:TypeArguments="FlyoutBehavior">
+            <On Platform="Android, iOS" Value="Flyout" />
+            <On Platform="WinUI, MacCatalyst" Value="Disabled" />
+        </OnPlatform>
+    </Shell.FlyoutBehavior> 
+    <!-- Estilo do menu lateral (sidebar) -->
     <Shell.FlyoutHeader>
-        <Grid HeightRequest="60" BackgroundColor="Crimson">
-            
-            <Label Text="Ícones" HorizontalOptions="Center" VerticalOptions="Center" />
+        <Grid BackgroundColor="#2C3E50" Padding="20">
+            <Label Text="Mac Poços"
+                   FontSize="24"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
         </Grid>
     </Shell.FlyoutHeader>
 
-    <ShellContent
-     Title="Home"
-     ContentTemplate="{DataTemplate local:MainPage}"
-     Route="MainPage"
-     Icon="dotnet_bot.png"
-      />
-
-
-    <ShellContent
-    Title="🧾 [Nova Venda]"
-    ContentTemplate="{DataTemplate servicos:CadastrarServico}"
-    Route="MainPage"
- Icon="dotnet_bot.png"
-    />
-
-    <ShellContent
-    Title="🧾 [Relatórios]"
-    ContentTemplate="{DataTemplate servicos:CadastrarServico}"
-    Route="MainPage"
- Icon="dotnet_bot.png"
-/>
-
-    <ShellContent
-    Title="🧾 [Gerenciar Estoque]"
-    ContentTemplate="{DataTemplate servicos:CadastrarServico}"
-    Route="MainPage"
- Icon="dotnet_bot.png"
-/>
-
-    <ShellContent
-    Title="🧾 [Cadastrar Serviço]"
-    ContentTemplate="{DataTemplate servicos:CadastrarServico}"
-    Route="MainPage"
- Icon="dotnet_bot.png"
-/>
-
-    <ShellContent
-    Title="🧾 [Historico de Venda]"
-    ContentTemplate="{DataTemplate servicos:CadastrarServico}"
-    Route="MainPage"
- Icon="dotnet_bot.png"
-/>
-
-    <FlyoutItem Title="Dogs"
-               >
-        <Tab>
-            <ShellContent Title="Dog
-                          "/>
-        </Tab>
+    <!-- Home -->
+    <FlyoutItem Title="Início"
+                Icon="dotnet_bot.png"
+                Route="MainPage">
+        <ShellContent
+            Title="Página Inicial"
+            ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
 
-    <MenuItem Text="Help"
-             
-              />
+    <!-- Pedidos -->
+    <FlyoutItem Title="Pedidos"
+                Icon="dotnet_bot.png"
+                Route="CadastrarProdutos">
+        <ShellContent
+            Title="Pedidos"
+            ContentTemplate="{DataTemplate produtos:CadastrarProdutos}" />
+    </FlyoutItem>
 
-
-    <Shell.FlyoutFooter>
-
-        <StackLayout>
-            
-            <Button Text="Usuario" />
-            <Button Text="Configurações" />
-            
-        </StackLayout>
-
-    </Shell.FlyoutFooter>
-    
-
+    <!-- Estoque -->
+    <FlyoutItem Title="Estoque"
+                Icon="dotnet_bot.png"
+                Route="CadastrarServico">
+        <ShellContent
+            Title="Estoque"
+            ContentTemplate="{DataTemplate servicos:CadastrarServico}" />
+    </FlyoutItem>
 </Shell>

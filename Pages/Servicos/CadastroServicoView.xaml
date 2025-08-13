@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LojaApp.Pages.Servicos.CadastroServicoView">
+    <ScrollView>
+        <VerticalStackLayout
+    Padding="50,20" Spacing="15">
+            <Label
+            Text="Cadastrar Serviço"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1" />
+
+            <Grid Padding="10" ColumnSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- 🧾 FORMULÁRIO PRINCIPAL -->
+                <Grid Grid.Column="0" RowSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Linha 1: Nome + CPF -->
+
+                    <VerticalStackLayout  Grid.Row="0" Spacing="10">
+                        <Label Text="Cliente"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+                        <Grid  ColumnSpacing="10" ColumnDefinitions="*,*" >
+
+
+                            <Entry Placeholder="Nome Cliente" Grid.Column="0"
+                   BackgroundColor="#2C2C2C" TextColor="White" 
+                   HorizontalOptions="FillAndExpand" />
+
+                            <Entry Placeholder="CPF Cliente" Grid.Column="1"
+                   BackgroundColor="#2C2C2C" TextColor="White"
+                   />
+
+
+                        </Grid>
+                    </VerticalStackLayout>
+                    <!-- Linha 2: Tipo Serviço -->
+                    <VerticalStackLayout Grid.Row="1" Spacing="10">
+                        <Label Text="Tipo de Serviço"
+                 TextColor="White"
+                 FontSize="18"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Start"/>
+                        <Entry Placeholder="Tipo de Serviço"
+               BackgroundColor="#2C2C2C" TextColor="White" />
+                    </VerticalStackLayout>
+
+                    <!-- Linha 3: Materiais + Pesquisa -->
+                    <VerticalStackLayout Grid.Row="2" Spacing="10">
+
+                        <Label Text="Outros Serviços Realizados"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+
+                        <Frame BackgroundColor="#2A2A2A" CornerRadius="10" Padding="5">
+                            <CollectionView ItemsSource="{Binding Material}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame BackgroundColor="#3A3A3A" CornerRadius="5" Padding="10" Margin="5">
+                                            <HorizontalStackLayout Spacing="55">
+                                                <Label Text="Numero" TextColor="White" FontAttributes="Bold"/>
+
+                                                <Label Text="{Binding Produto}" TextColor="White" FontAttributes="Bold"/>
+
+                                                <Label Text="Quantidade:" TextColor="LightGray"  FontSize="10"/>
+                                                <Label Text="{Binding Quantidade}" TextColor="LightGray"  FontSize="10"/>
+
+                                                <Label Text="ValorUnitario:" TextColor="LightGray"  FontSize="10"/>
+                                                <Label Text="{Binding ValorUnitario}" TextColor="Gray" FontSize="10"/>
+
+
+                                                <Label Text="ValorTotal:" TextColor="LightGray"  FontSize="10"/>
+                                                <Label Text="{Binding ValorTotal}" TextColor="Gray" FontSize="10"/>
+
+
+
+                                            </HorizontalStackLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Frame>
+
+                    </VerticalStackLayout>
+
+                    <!-- Linha 4: Observações -->
+
+                    <VerticalStackLayout Grid.Row="3" Spacing="10">
+
+                        <Label Text="Observações"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+
+                        <Editor Placeholder="Observações"
+                    BackgroundColor="#2C2C2C" TextColor="White"
+                    HeightRequest="100"/>
+
+                    </VerticalStackLayout>
+
+                    <!-- Linha 5: Código + Botão -->
+                    <VerticalStackLayout Grid.Row="4" Spacing="10">
+                        <Label Text="Codigo de serviço"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+
+                        <Grid ColumnSpacing="10" ColumnDefinitions="*,*">
+                            <Entry Grid.Column="0"
+                          Placeholder="Códigso gerado"
+                          BackgroundColor="#2C2C2C"
+                          TextColor="White"
+                          HorizontalOptions="FillAndExpand"/>
+
+                            <Button Grid.Column="1"
+                           Text="Salvar Serviço"
+                           BackgroundColor="#A7C5D9"
+                           TextColor="Black"
+                           HorizontalOptions="FillAndExpand"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- 📋 COLUNA LATERAL - OUTROS SERVIÇOS -->
+                <VerticalStackLayout Grid.Column="1" Padding="5" Spacing="10"
+                         BackgroundColor="#2C2C2C" 
+                         Margin="0,0,0,0">
+                    <Label Text="Outros Serviços Realizados"
+               TextColor="White"
+               FontSize="18"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+                    <CollectionView ItemsSource="{Binding Servicos}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="#3A3A3A" CornerRadius="10"
+               Padding="10" Margin="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding NomeCliente}" TextColor="White" FontAttributes="Bold"/>
+                                        <HorizontalStackLayout>
+                                            <Label Text="{Binding TipoServico}" TextColor="LightGray"/>
+                                            <Label Text="{Binding Data}" TextColor="Gray" FontSize="12"/>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout>
+                                            <Label Text="{Binding Garantia}" TextColor="Gray" FontSize="12"/>
+                                            <Label Text="{Binding Codigoservico}" TextColor="Gray" FontSize="12"/>
+                                        </HorizontalStackLayout>
+
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Grid>
+
+            
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>

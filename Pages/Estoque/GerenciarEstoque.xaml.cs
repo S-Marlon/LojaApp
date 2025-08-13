@@ -1,11 +1,11 @@
-namespace LojaApp.Views.Estoque;
+namespace LojaApp.Pages.Estoque;
 
 public partial class GerenciarEstoque : ContentPage
 {
-	public GerenciarEstoque()
-	{
-		InitializeComponent();
-	}
+    public GerenciarEstoque()
+    {
+        InitializeComponent();
+    }
 
     private async void inicio(object sender, EventArgs e)
     {

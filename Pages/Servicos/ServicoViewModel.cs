@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using LojaApp.Views.Servicos;
+using LojaApp.Pages.Servicos;
 
 public class ServicoViewModel : INotifyPropertyChanged
 {

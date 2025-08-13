@@ -66,24 +66,52 @@
 	  <Folder Include="Database\" />
 	  <Folder Include="Helpers\" />
 	  <Folder Include="Models\" />
+	  <Folder Include="Pages\Admin\" />
+	  <Folder Include="Pages\PDV\" />
+	  <Folder Include="Pages\Shared\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="ViewModels\" />
+	  <Folder Include="Views\NovaPasta\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Estoque\GerenciarEstoque.xaml">
+	  <Compile Update="Pages\Relatorios\RelatoriosPage.xaml.cs">
+	    <DependentUpon>RelatoriosPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\Estoque\GerenciarEstoque.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Produtos\CadastrarProdutos.xaml">
+	  <MauiXaml Update="Pages\Produtos\CadastrarProdutos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Relatorios\Relatorios.xaml">
+	  <MauiXaml Update="Pages\Relatorios\RelatoriosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Servicos\CadastrarServico.xaml">
+	  <MauiXaml Update="Pages\Servicos\CadastrarServico.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Vendas\NovaVenda.xaml">
+	  <MauiXaml Update="Pages\Servicos\CadastroServicoView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Vendas\NovaVenda.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AboutView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DashboardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProfileView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SidebarView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

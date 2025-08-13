@@ -1,17 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LojaApp.MainPage"
+             x:Class="LojaApp.Pages.MainPage"
+             xmlns:views="clr-namespace:LojaApp.Views"
              Title="Gestor Zenith">
 
 
-    
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+    <Grid ColumnDefinitions="Auto,*">
 
+        
+            <!-- Sidebar -->
+            <views:SidebarView Grid.Column="0"
+                           x:Name="sidebar"
+                           BackgroundColor="red"
+                           WidthRequest="250"
+                           IsVisible="{Binding IsSidebarOpen}" />
+
+            <!-- Main Content Area -->
+            <ContentView Grid.Column="1"
+                     x:Name="mainContentArea"
+                     BackgroundColor="black" />
+
+            <!-- Optional: Hamburger button to toggle sidebar visibility -->
+            <ImageButton Source="dotnet_bot.png"
+                     Background="AliceBlue"
+                     WidthRequest="40"
+                     HeightRequest="40"
+                     VerticalOptions="Start"
+                     HorizontalOptions="Start"
+                     Margin="10"
+                     Grid.Column="1"
+                     Clicked="OnToggleSidebarClicked" />
+        
+
+        <!--
+            
             <Label
             Text="Bem vindo: marlon"
             Style="{StaticResource Headline}"
@@ -87,9 +111,8 @@
             Text="⚙️ [Configurações]"
             />   
 
-
-        </VerticalStackLayout>
-    </ScrollView>
+            -->
+    </Grid>
 
 </ContentPage>
 

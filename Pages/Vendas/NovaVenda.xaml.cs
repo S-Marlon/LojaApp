@@ -1,11 +1,11 @@
-namespace LojaApp.Views.Vendas;
+namespace LojaApp.Pages.Vendas;
 
 public partial class NovaVenda : ContentPage
 {
-	public NovaVenda()
-	{
-		InitializeComponent();
-	}
+    public NovaVenda()
+    {
+        InitializeComponent();
+    }
 
     private void inicio(object sender, EventArgs e)
     {
