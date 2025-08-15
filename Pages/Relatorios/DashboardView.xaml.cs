@@ -1,4 +1,4 @@
-namespace LojaApp.Views;
+namespace LojaApp.Pages.Relatorios;
 
 public partial class DashboardView : ContentView
 {

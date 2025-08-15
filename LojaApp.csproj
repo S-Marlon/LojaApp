@@ -70,8 +70,6 @@
 	  <Folder Include="Pages\PDV\" />
 	  <Folder Include="Pages\Shared\" />
 	  <Folder Include="Services\" />
-	  <Folder Include="ViewModels\" />
-	  <Folder Include="Views\NovaPasta\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -81,10 +79,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\Estoque\GerenciarEstoque.xaml">
+	  <MauiXaml Update="Pages\Estoque\GerenciarEstoqueView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Produtos\CadastrarProdutos.xaml">
+	  <MauiXaml Update="Pages\Produtos\CadastrarProdutosView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Relatorios\DashboardView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Relatorios\RelatoriosPage.xaml">
@@ -99,16 +100,7 @@
 	  <MauiXaml Update="Pages\Vendas\NovaVenda.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AboutView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\DashboardView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\ProfileView.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\SettingsView.xaml">
+	  <MauiXaml Update="Views\SidebarButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SidebarView.xaml">

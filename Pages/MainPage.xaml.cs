@@ -1,15 +1,19 @@
 ﻿using LojaApp.Views;
 using LojaApp.Pages.Estoque;
-using LojaApp.Pages.produtos;
+using LojaApp.Pages.Produtos;
 using LojaApp.Pages.Relatorios;
 using LojaApp.Pages.Servicos;
 using LojaApp.Pages.Vendas;
 using Microsoft.Maui.Controls;
 
 namespace LojaApp.Pages
-{
+{   public class PessoaViewModel
+        {
+            public string Nome { get; set; } = "Marlon";
+        }
     public partial class MainPage : ContentPage
     {
+        
 
         private bool _isSidebarOpen;
         public bool IsSidebarOpen
@@ -27,6 +31,7 @@ namespace LojaApp.Pages
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new PessoaViewModel(); // DataContext definido
             this.BindingContext = this; // Set the BindingContext for IsSidebarOpen
 
             // Subscribe to the MenuItemSelected event from the sidebar
@@ -39,12 +44,13 @@ namespace LojaApp.Pages
         private void OnToggleSidebarClicked(object sender, EventArgs e)
         {
             IsSidebarOpen = !IsSidebarOpen;
+            
         }
 
         private void OnSidebarMenuItemSelected(object sender, string pageName)
         {
             LoadContent(pageName);
-            IsSidebarOpen = false; // Close sidebar after selection
+            // IsSidebarOpen = false; // Close sidebar after selection
         }
 
         private void LoadContent(string pageName)
@@ -58,11 +64,11 @@ namespace LojaApp.Pages
                 case "Dashboard":
                     mainContentArea.Content = new DashboardView();
                     break;
-                case "Settings":
-                    mainContentArea.Content = new SettingsView();
+                case "produtos":
+                    mainContentArea.Content = new CadastrarProdutosView();
                     break;
-                case "Profile":
-                    mainContentArea.Content = new ProfileView();
+                case "Estoque":
+                    mainContentArea.Content = new GerenciarEstoqueView();
                     break;
                 case "Servico":
                     mainContentArea.Content = new CadastroServicoView();
@@ -72,50 +78,7 @@ namespace LojaApp.Pages
                     break;
             }
         }
-
-        private void OnButtonClicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Hello", "Welcome to LojaApp!", "Bleleza");
-        }
-
-        private void servicoClicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Indo para a tela", "Cadastrar servico", "Bleleza");
-            Navigation.PushAsync(new CadastrarServico());
-        }
-
-        private void estoqueClicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Indo para a tela", "Cadastrar servico", "Bleleza");
-            Navigation.PushAsync(new GerenciarEstoque());
-        }
-
-        private void relatoriosClicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Indo para a tela", "Cadastrar servico", "Bleleza");
-           //Navigation.PushAsync(new RelatoriosPage());
-        }
-
-        private void produtosClicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Indo para a tela", "Cadastrar servico", "Bleleza");
-            Navigation.PushAsync(new CadastrarProdutos());
-        }
-
-        private void vendasClicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Indo para a tela", "Cadastrar servico", "Bleleza");
-            Navigation.PushAsync(new NovaVenda());
-        }
-
-        private async void OnBotaoServicosClicked(object sender, EventArgs e)
-        {
-            // Navega para a rota registrada
-            await Shell.Current.GoToAsync("servicosPage");
-        }
-
-
-
+      
 
     }
 

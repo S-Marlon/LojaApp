@@ -8,7 +8,7 @@
     xmlns:venda="clr-namespace:LojaApp.Pages.Vendas"
     xmlns:estoque="clr-namespace:LojaApp.Pages.Estoque"
     xmlns:relatorios="clr-namespace:LojaApp.Pages.Relatorios"
-    xmlns:produtos="clr-namespace:LojaApp.Pages.produtos"
+    xmlns:produtos="clr-namespace:LojaApp.Pages.Produtos"
     FlyoutWidth="300"
     
    Title="LojaApp"
@@ -69,7 +69,7 @@
                 Route="CadastrarProdutos">
         <ShellContent
             Title="Pedidos"
-            ContentTemplate="{DataTemplate produtos:CadastrarProdutos}" />
+            ContentTemplate="{DataTemplate produtos:CadastrarProdutosView}" />
     </FlyoutItem>
 
     <!-- Estoque -->
@@ -78,6 +78,6 @@
                 Route="CadastrarServico">
         <ShellContent
             Title="Estoque"
-            ContentTemplate="{DataTemplate servicos:CadastrarServico}" />
+            ContentTemplate="{DataTemplate servicos:CadastroServicoView}" />
     </FlyoutItem>
 </Shell>

@@ -7,7 +7,7 @@ public partial class SidebarView : ContentView
     {
         InitializeComponent();
     }
-
+   
 
     private void OnMenuItemClicked(object sender, EventArgs e)
     {
@@ -17,3 +17,5 @@ public partial class SidebarView : ContentView
         }
     }
 }
+
+

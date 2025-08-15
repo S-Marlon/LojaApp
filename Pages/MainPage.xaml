@@ -13,14 +13,14 @@
             <!-- Sidebar -->
             <views:SidebarView Grid.Column="0"
                            x:Name="sidebar"
-                           BackgroundColor="red"
-                           WidthRequest="250"
+                           BackgroundColor="#434343"
+                           WidthRequest="200"
                            IsVisible="{Binding IsSidebarOpen}" />
 
-            <!-- Main Content Area -->
-            <ContentView Grid.Column="1"
-                     x:Name="mainContentArea"
-                     BackgroundColor="black" />
+                <!-- Main Content Area -->
+                <ContentView Grid.Column="1"
+                         x:Name="mainContentArea"
+                         BackgroundColor="black" />
 
             <!-- Optional: Hamburger button to toggle sidebar visibility -->
             <ImageButton Source="dotnet_bot.png"

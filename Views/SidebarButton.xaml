@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LojaApp.Views.SidebarButton"
+             >
+    <Frame 
+        x:Name="ButtonFrame"
+        Padding="0"
+        CornerRadius="4"
+        BackgroundColor="Transparent"
+        HasShadow="False"
+        WidthRequest="160"
+        HeightRequest="70" BorderColor="Transparent"  >
+        <VerticalStackLayout Spacing="8" Padding="0,2" HorizontalOptions="Center" Background="Transparent" VerticalOptions="Center">
+            <!-- Ícone no círculo -->
+            <Frame
+                Padding="0"
+                BackgroundColor="White"
+                CornerRadius="20"
+                HeightRequest="40"
+                WidthRequest="40"
+                HorizontalOptions="Center"
+                >
+                
+                <Image 
+
+                    Source="dotnet_bot.png" 
+                    HeightRequest="50" 
+                    WidthRequest="40" 
+                    Aspect="AspectFit"/>
+                    <!-- Source="dotnet_bot.png" -->
+            </Frame>
+
+            <!-- Texto -->
+             <!--   Text="{Binding Title}" -->
+            <Label 
+                Text="Cadastrar Produtos"
+                FontSize="16"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center"
+                TextColor="White"/>
+
+
+            
+
+        </VerticalStackLayout>
+
+        
+    </Frame>
+    
+</ContentView>
