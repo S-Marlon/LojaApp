@@ -4,60 +4,61 @@
              xmlns:local="clr-namespace:LojaApp.Views"
              x:Class="LojaApp.Views.SidebarView"
              x:Name="sidebarRoot">
-    <VerticalStackLayout Spacing="5" Padding="10">
-        <!-- Sidebar Header/Logo -->
-        <!-- <Image Source="dotnet_bot.png" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center"  /> -->
-        <Label Text="Gestor Zenith" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
-        <BoxView HeightRequest="1" Color="LightGray" Margin="0,10,0,10"/>
+    <ScrollView>
+        <VerticalStackLayout Spacing="5" Padding="10">
+            <!-- Sidebar Header/Logo -->
+            <!-- <Image Source="dotnet_bot.png" HeightRequest="80" WidthRequest="80" HorizontalOptions="Center"  /> -->
+            <Label Text="Gestor Zenith" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White"/>
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10,0,10"/>
 
-        <!-- Menu Items -->
-        <StackLayout Padding="5" Spacing="8" BackgroundColor="Transparent">
+            <!-- Menu Items -->
+            <StackLayout Padding="5" Spacing="8" BackgroundColor="Transparent">
 
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-            <local:SidebarButton 
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <local:SidebarButton 
         BindingContext="{Binding Buttons}"
                  
         />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-            <local:SidebarButton 
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <local:SidebarButton 
 BindingContext="{Binding Buttons}" 
 />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-            <local:SidebarButton 
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <local:SidebarButton 
 BindingContext="{Binding Buttons}" 
 />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-            <local:SidebarButton 
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <local:SidebarButton 
 BindingContext="{Binding Buttons}" 
 />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
 
-            <local:SidebarButton 
+                <local:SidebarButton 
 BindingContext="{Binding Buttons}" 
 />
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
 
-            <local:SidebarButton 
+                <local:SidebarButton 
 BindingContext="{Binding Buttons}" 
 />
 
-            <!--<Rectangle HeightRequest="2" Fill="LightGray" WidthRequest="150"/>-->
-            <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <!--<Rectangle HeightRequest="2" Fill="LightGray" WidthRequest="150"/>-->
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
 
 
 
-        </StackLayout>
+            </StackLayout>
 
 
-        <Button Text="Nova Venda" Style="{StaticResource SidebarMenuItemStyle}"  Clicked="OnMenuItemClicked" CommandParameter="Dashboard" />
-        <Button Text=" Produtos" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="produtos" />
-        <Button Text=" de Vendas" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="Profile" />
-        <Button Text="Relatorios" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="About" />
-        <Button Text="Gerenciar Estoque" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="Estoque" />
-        <Button Text="Cadastrar Servico" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="Servico" />
+            <Button Text="Nova Venda" Style="{StaticResource SidebarMenuItemStyle}"  Clicked="OnMenuItemClicked" CommandParameter="Dashboard" />
+            <Button Text=" Produtos" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="produtos" />
+            <Button Text=" de Vendas" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="Profile" />
+            <Button Text="Relatorios" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="About" />
+            <Button Text="Gerenciar Estoque" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="Estoque" />
+            <Button Text="Cadastrar Servico" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="Servico" />
 
-        <!-- You can also use other layouts like CollectionView for dynamic menus -->
-        <!-- <CollectionView ItemsSource="{Binding MenuItems}">
+            <!-- You can also use other layouts like CollectionView for dynamic menus -->
+            <!-- <CollectionView ItemsSource="{Binding MenuItems}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10">
@@ -66,5 +67,6 @@ BindingContext="{Binding Buttons}"
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView> -->
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentView>
