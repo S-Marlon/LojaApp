@@ -13,21 +13,21 @@ namespace LojaApp.Pages
         }
     public partial class MainPage : ContentPage
     {
-        
-
-        private bool _isSidebarOpen;
-        public bool IsSidebarOpen
+        private double _sidebarWidth = 200;
+        private bool IsSidebarOpen = true;
+        public double SidebarWidth
         {
-            get => _isSidebarOpen;
+            get => _sidebarWidth;
             set
             {
-                if (_isSidebarOpen != value)
+                if (_sidebarWidth != value)
                 {
-                    _isSidebarOpen = value;
-                    OnPropertyChanged(nameof(IsSidebarOpen));
+                    _sidebarWidth = value;
+                    OnPropertyChanged(nameof(SidebarWidth));
                 }
             }
         }
+
         public MainPage()
         {
             InitializeComponent();
@@ -43,8 +43,15 @@ namespace LojaApp.Pages
 
         private void OnToggleSidebarClicked(object sender, EventArgs e)
         {
+            double start = sidebar.WidthRequest;
+            double end = IsSidebarOpen ? 80 : 200; // 30 quando fechado, 200 quando aberto
+            uint duration = 250; // duração da animação em ms
+
+            var animation = new Animation(v => sidebar.WidthRequest = v, start, end);
+            animation.Commit(this, "SidebarWidthAnimation", 16, duration, Easing.CubicInOut);
+
             IsSidebarOpen = !IsSidebarOpen;
-            
+
         }
 
         private void OnSidebarMenuItemSelected(object sender, string pageName)

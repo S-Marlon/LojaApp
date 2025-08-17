@@ -14,8 +14,8 @@
             <views:SidebarView Grid.Column="0"
                            x:Name="sidebar"
                            BackgroundColor="#434343"
-                           WidthRequest="200"
-                           IsVisible="{Binding IsSidebarOpen}" />
+                           WidthRequest="{Binding SidebarWidth}"
+                           IsVisible="True" />
 
                 <!-- Main Content Area -->
                 <ContentView Grid.Column="1"
