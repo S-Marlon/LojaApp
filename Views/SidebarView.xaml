@@ -12,35 +12,68 @@
             <BoxView HeightRequest="1" Color="LightGray" Margin="0,10,0,10"/>
 
             <!-- Menu Items -->
-            <StackLayout Padding="5" Spacing="8" BackgroundColor="Transparent">
+            <StackLayout Padding="5" Spacing="8" BackgroundColor="Transparent" >
 
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-                <local:SidebarButton 
-        BindingContext="{Binding Buttons}"
-                 
-        />
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-                <local:SidebarButton 
-BindingContext="{Binding Buttons}" 
-/>
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-                <local:SidebarButton 
-BindingContext="{Binding Buttons}" 
-/>
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
-                <local:SidebarButton 
-BindingContext="{Binding Buttons}" 
-/>
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <BoxView HeightRequest="1"  Color="LightGray" Margin="0,0,0,0"/>
 
-                <local:SidebarButton 
-BindingContext="{Binding Buttons}" 
-/>
-                <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
+                <CollectionView x:Name="SidebarCollection" ItemsSource="{Binding Buttons}" SelectionMode="None"  >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate >
+                            <!-- Cartão do item -->
+                            <Grid Margin="0,6" HeightRequest="90" >
+                                <!-- Fundo ativo (vermelho) -->
+                                <Frame x:Name="ActiveBg"
+                               CornerRadius="10"
+                               HasShadow="False"
+                               Padding="12"
+                               BackgroundColor="Transparent"/>
 
-                <local:SidebarButton 
-BindingContext="{Binding Buttons}" 
-/>
+                                <!-- Conteúdo do cartão -->
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Ícone dentro do círculo branco -->
+                                    <Frame Grid.Row="0"
+                                   WidthRequest="48" HeightRequest="48"
+                                   CornerRadius="24"
+                                   BackgroundColor="White"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HasShadow="False">
+                                        <Image Source="{Binding Icon}" WidthRequest="24" HeightRequest="24" Aspect="AspectFit"/>
+                                    </Frame>
+
+                                    <!-- Texto -->
+                                    <Label Grid.Row="1"
+                                   Text="{Binding Title}"
+                                   FontSize="12"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="0,8,0,0"
+                                   TextColor="#DDDDDD"/>
+                                </Grid>
+
+                                <!-- Clique -->
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference SidebarCollection}, Path=BindingContext.ItemTappedCommand}"
+                                    CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+
+                                <!-- Triggers de estado ativo -->
+                                <Grid.Triggers>
+                                    <DataTrigger TargetType="Grid" Binding="{Binding IsSelected}" Value="True">
+                                        <Setter TargetName="ActiveBg" Property="BackgroundColor" Value="#B80F0F"/>
+                                        <!-- vermelho -->
+                                    </DataTrigger>
+                                </Grid.Triggers>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
 
                 <!--<Rectangle HeightRequest="2" Fill="LightGray" WidthRequest="150"/>-->
                 <BoxView HeightRequest="1" Color="LightGray" Margin="0,0,0,0"/>
@@ -50,7 +83,7 @@ BindingContext="{Binding Buttons}"
             </StackLayout>
 
 
-            <Button Text="Nova Venda" Style="{StaticResource SidebarMenuItemStyle}"  Clicked="OnMenuItemClicked" CommandParameter="Dashboard" />
+            <Button Text="Nova Venda" Style="{StaticResource SidebarMenuItemStyle}"  Clicked="OnMenuItemClicked" CommandParameter="Dashboard"  BackgroundColor="#BD3534"/>
             <Button Text=" Produtos" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="produtos" />
             <Button Text=" de Vendas" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="Profile" />
             <Button Text="Relatorios" Style="{StaticResource SidebarMenuItemStyle}" Clicked="OnMenuItemClicked" CommandParameter="About" />

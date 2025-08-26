@@ -65,7 +65,6 @@
 	<ItemGroup>
 	  <Folder Include="Database\" />
 	  <Folder Include="Helpers\" />
-	  <Folder Include="Models\" />
 	  <Folder Include="Pages\Admin\" />
 	  <Folder Include="Pages\PDV\" />
 	  <Folder Include="Pages\Shared\" />

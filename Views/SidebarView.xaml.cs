@@ -1,3 +1,5 @@
+using LojaApp.ViewModels;
+
 namespace LojaApp.Views;
 
 public partial class SidebarView : ContentView
@@ -6,6 +8,7 @@ public partial class SidebarView : ContentView
     public SidebarView()
     {
         InitializeComponent();
+        BindingContext = new SidebarViewModel();
     }
    
 
@@ -15,7 +18,23 @@ public partial class SidebarView : ContentView
         {
             MenuItemSelected?.Invoke(this, pageName);
         }
+
     }
+
+    private void OnMenuItemTapped(object sender, EventArgs e)
+    {
+        if (sender is Grid grid && grid.GestureRecognizers.FirstOrDefault() is TapGestureRecognizer tapGestureRecognizer)
+        {
+            // O parâmetro vem do CommandParameter
+            var pageName = tapGestureRecognizer.CommandParameter as string;
+            if (!string.IsNullOrEmpty(pageName))
+            {
+                MenuItemSelected?.Invoke(this, pageName);
+            }
+        }
+    }
+
+
 }
 
 

@@ -6,22 +6,27 @@
         <VerticalStackLayout
     Padding="10,20" Spacing="15"
             >
+
+          
+            <HorizontalStackLayout  HorizontalOptions="End">
+
+            <Button Text="✎ Criar nova ordem de serviço"
+            BackgroundColor="DarkRed"
+            TextColor="White"/>
+
             
-            <Label
-            Text="Serviço Realizados"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1" />
-            
-            
+
+            </HorizontalStackLayout>
+
 
             <Grid Padding="10" ColumnSpacing="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="4*" />
-                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="8*" />
                 </Grid.ColumnDefinitions>
 
                 <!-- 🧾 FORMULÁRIO PRINCIPAL -->
-            <Grid Grid.Column="0"  BackgroundColor="#1C1C1C" Padding="15" RowSpacing="15" >
+            <Grid Grid.Column="0"  BackgroundColor="#1C1C1C" Padding="10" RowSpacing="15" >
              
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -83,10 +88,6 @@
 
                         <Entry Placeholder="Status do seviço" Grid.Column="1" Grid.Row="0"
                                 BackgroundColor="#2C2C2C" TextColor="White"/>
-
-
-
-
 
                     </Grid>
                     <Entry Placeholder="Tipo de Serviço" Grid.Column="1" Grid.Row="1"
@@ -284,68 +285,84 @@
                             <StackLayout Spacing="10">
 
                                 <!-- Cabeçalho com número do pedido e nome -->
-                                <Grid ColumnSpacing="10" ColumnDefinitions="50,*" >
-                                    <Frame BackgroundColor="#FFB6C1" Padding="5" CornerRadius="10" >
-                                        <Label Text="01" FontSize="20" TextColor="Black" />
+                                <Grid ColumnSpacing="10" ColumnDefinitions="60,*" >
+                                    <Frame BackgroundColor="DarkRed" Padding="5" CornerRadius="8" >
+                                        <Label Text=" 01" FontSize="20" TextColor="White" />
                                     </Frame>
 
                                     <StackLayout Grid.Column="2" VerticalOptions="Center" Spacing="3">
                                         <Label Text="Watson Joyce" FontSize="16" TextColor="White" />
                                         <Label Text="Ordem #2345" FontSize="12" TextColor="LightGray" />
-                                        <Frame Grid.Column="1"
-                                        BackgroundColor="Transparent"
-                                        BorderColor="LightGreen"
-                                        Padding="5"
-                                        CornerRadius="10"
-                                        HorizontalOptions="Start"
-                                         VerticalOptions="Center">
-                                            <Label Text="✓ Completo" TextColor="LightGreen" FontSize="12"/>
-                                        </Frame>
                                     </StackLayout>
 
 
                                 </Grid>
 
-                               
+                                <!-- Cabeçalho com número do pedido e nome -->
+                                <Grid ColumnSpacing="10" ColumnDefinitions="*,*" >
 
-                                <!-- Data e Hora -->
-                                <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,0">
-                                    <Label Text="Quarta, 28, 2024" TextColor="White" FontSize="12" />
-                                    <Label Text="16:48" Grid.Column="1" TextColor="White" FontSize="12"/>
+
+                                    <StackLayout Grid.Column="0" VerticalOptions="Center" Spacing="0" HorizontalOptions="StartAndExpand">
+
+                                        <Label Text="Quarta-feira, 28/07/2024" TextColor="White" FontSize="12" />
+                                        <Label Text="16:48" Grid.Column="1" TextColor="White" FontSize="12"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="1" HorizontalOptions="End" Spacing="3">
+
+                                        
+                                        <Frame VerticalOptions="CenterAndExpand"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="LightGreen"
+                                        Padding="5"
+                                        CornerRadius="10"
+                                        HorizontalOptions="Start"
+                                        >
+                                            <Label Text="✓ Completo" TextColor="LightGreen" FontSize="12"/>
+                                        </Frame>
+                                        
+                                        
+                                    </StackLayout>
+
+
                                 </Grid>
 
+
+
+                                <!-- Data e Hora -->
+
+                                <Frame BackgroundColor="DimGray" >
+                                    <VerticalStackLayout  Padding="0,-10,0,0" Spacing="0">
                                 <!-- Lista de Itens -->
-                                <Grid ColumnDefinitions="40,*,Auto" Margin="0,5,0,0">
-                                    <Label Text="Qtd" TextColor="Gray" FontAttributes="Bold"  Grid.Column="0"/>
-                                    <Label Text="Items" TextColor="Gray" FontAttributes="Bold"  Grid.Column="1"/>
-                                    <Label Text="Price" TextColor="Gray" FontAttributes="Bold"  Grid.Column="2"/>
+                                        <Grid ColumnDefinitions="40,*,Auto" Margin="-15,0,-15,0" >
+                                    <Label Text="Qtd" TextColor="Black" FontAttributes="Bold"  Grid.Column="0"/>
+                                            <Label Text="Items" TextColor="Black" FontAttributes="Bold"  Grid.Column="1"/>
+                                            <Label Text="Price" TextColor="Black" FontAttributes="Bold"  Grid.Column="2"/>
                                 </Grid>
 
                                 <!-- Exemplo de item -->
-                                <Grid ColumnDefinitions="40,*,Auto">
+                                        <Grid ColumnDefinitions="40,*,Auto"  Margin="-15,0,-15,0">
                                     <Label Text="01" TextColor="White"  Grid.Column="0"/>
                                     <Label Text="Scrambled eggs..." TextColor="White"  Grid.Column="1"/>
                                     <Label Text="$199" TextColor="White"  Grid.Column="2"/>
                                 </Grid>
-                                <Grid ColumnDefinitions="40,*,Auto">
+                                        <Grid ColumnDefinitions="40,*,Auto"  Margin="-15,0,-15,0">
                                     <Label Text="01" TextColor="White"  Grid.Column="0"/>
                                     <Label Text="Scrambled eggs..." TextColor="White"  Grid.Column="1"/>
                                     <Label Text="$199" TextColor="White"  Grid.Column="2"/>
                                 </Grid>
-                                <Grid ColumnDefinitions="40,*,Auto">
+                                        <Grid ColumnDefinitions="40,*,Auto"  Margin="-15,0,-15,0">
                                     <Label Text="01" TextColor="White"  Grid.Column="0"/>
                                     <Label Text="Scrambled eggs..." TextColor="White"  Grid.Column="1"/>
                                     <Label Text="$199" TextColor="White"  Grid.Column="2"/>
                                 </Grid>
-                                <Grid ColumnDefinitions="40,*,Auto">
-                                    <Label Text="01" TextColor="White"  Grid.Column="0"/>
-                                    <Label Text="Scrambled eggs..." TextColor="White"  Grid.Column="1"/>
-                                    <Label Text="$199" TextColor="White"  Grid.Column="2"/>
-                                </Grid>
-
+                                
+                                    </VerticalStackLayout>
+                                </Frame>
 
                                 <!-- Subtotal -->
-                                <Grid ColumnDefinitions="Auto,*" Margin="0,10,0,0">
+                                <Grid ColumnDefinitions="Auto,*" Margin="0,5,0,0">
                                     <Label Text="SubTotal" TextColor="Gray"/>
                                     <Label Text="$649" Grid.Column="1" TextColor="White" HorizontalOptions="End"/>
                                 </Grid>
@@ -354,12 +371,12 @@
                                 <!-- Botões -->
                                 <Grid ColumnDefinitions="*,*" Margin="0,0,0,0" ColumnSpacing="10">
                                     <Button Text="✎ Alterar"
-                                            BackgroundColor="DarkOrange"
+                                            BackgroundColor="DarkRed"
                                             TextColor="White"/>
                                     
                                     <Button Text="Ver Ordem"
                                             Grid.Column="1"
-                                            BackgroundColor="#FFB6C1"
+                                            BackgroundColor="Tomato"
                                             TextColor="Black"
                                             CornerRadius="10"
                                             HorizontalOptions="Fill"

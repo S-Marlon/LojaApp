@@ -7,22 +7,54 @@
 
 
 
-    <Grid ColumnDefinitions="Auto,*">
+    <Grid ColumnDefinitions="Auto,*" >
 
         
             <!-- Sidebar -->
             <views:SidebarView Grid.Column="0"
                            x:Name="sidebar"
-                           BackgroundColor="#434343"
+                           BackgroundColor="#292C2D"
                            WidthRequest="{Binding SidebarWidth}"
                            IsVisible="True" />
 
-                <!-- Main Content Area -->
-                <ContentView Grid.Column="1"
+            <!-- TOPbAR Area -->
+        <Grid RowDefinitions="Auto,*" Grid.Column="1" >
+            <Frame Grid.Row="0"
+            VerticalOptions="End"
+             BackgroundColor="darkred" >
+
+                <HorizontalStackLayout HorizontalOptions="End">
+                    <ImageButton Source="dotnet_bot.png"
+                     Background="AliceBlue"
+                     WidthRequest="40"
+                     HeightRequest="40"
+                     Clicked="OnToggleSidebarClicked" />
+                    <Label Margin="5"> | </Label>
+                    <ImageButton Source="dotnet_bot.png"
+                     Background="AliceBlue"
+                     WidthRequest="40"
+                     HeightRequest="40"
+                     Clicked="OnToggleSidebarClicked" />
+                    <Label Margin="5">|</Label>
+                    <ImageButton Source="dotnet_bot.png"
+                     Background="AliceBlue"
+                     WidthRequest="40"
+                     HeightRequest="40"
+                     Clicked="OnToggleSidebarClicked" />
+                </HorizontalStackLayout>
+
+                
+
+
+            </Frame>
+            <!-- Main Content Area -->
+
+            <ContentView  Grid.Row="1"
                          x:Name="mainContentArea"
                          BackgroundColor="black" />
+        </Grid>
 
-            <!-- Optional: Hamburger button to toggle sidebar visibility -->
+        <!-- Optional: Hamburger button to toggle sidebar visibility -->
             <ImageButton Source="dotnet_bot.png"
                      Background="AliceBlue"
                      WidthRequest="40"

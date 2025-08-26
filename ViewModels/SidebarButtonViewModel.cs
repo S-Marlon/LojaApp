@@ -44,10 +44,15 @@ namespace LojaApp.ViewModels
         }
 
         // ✅ Construtor com DOIS argumentos: título e ícone
-        public SidebarButtonViewModel(string title, string icon)
+        public SidebarButtonViewModel(string title, string icon, string pageName, Action<string> onClicked)
         {
             Title = title;
             Icon = icon;
+
+            Command = new Command(() =>
+            {
+                onClicked?.Invoke(pageName);
+            });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

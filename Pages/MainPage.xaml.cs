@@ -13,45 +13,36 @@ namespace LojaApp.Pages
         }
     public partial class MainPage : ContentPage
     {
-        private double _sidebarWidth = 200;
-        private bool IsSidebarOpen = true;
-        public double SidebarWidth
-        {
-            get => _sidebarWidth;
-            set
-            {
-                if (_sidebarWidth != value)
-                {
-                    _sidebarWidth = value;
-                    OnPropertyChanged(nameof(SidebarWidth));
-                }
-            }
-        }
-
+        private bool _isSidebarOpen = true; // começa aberta
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new PessoaViewModel(); // DataContext definido
-            this.BindingContext = this; // Set the BindingContext for IsSidebarOpen
 
-            // Subscribe to the MenuItemSelected event from the sidebar
+            // Binding apenas para animação da sidebar
+            this.BindingContext = this;
+
+            // Evento de clique vindo da Sidebar
             sidebar.MenuItemSelected += OnSidebarMenuItemSelected;
 
-            // Load the initial content
+            // Conteúdo inicial
             LoadContent("Dashboard");
         }
+        
 
         private void OnToggleSidebarClicked(object sender, EventArgs e)
         {
-            double start = sidebar.WidthRequest;
-            double end = IsSidebarOpen ? 80 : 200; // 30 quando fechado, 200 quando aberto
-            uint duration = 250; // duração da animação em ms
+            double target = _isSidebarOpen ? 80 : 200; // recolhe/expande
+            AnimateSidebarWidth(target);
+            _isSidebarOpen = !_isSidebarOpen;
+        }
 
-            var animation = new Animation(v => sidebar.WidthRequest = v, start, end);
-            animation.Commit(this, "SidebarWidthAnimation", 16, duration, Easing.CubicInOut);
+        private void AnimateSidebarWidth(double targetWidth)
+        {
+            // Usa a largura atual (WidthRequest se já definido, senão Width medido)
+            double start = sidebar.WidthRequest > 0 ? sidebar.WidthRequest : sidebar.Width;
 
-            IsSidebarOpen = !IsSidebarOpen;
-
+            var anim = new Animation(v => sidebar.WidthRequest = v, start, targetWidth);
+            anim.Commit(this, "SidebarWidthAnim", rate: 16, length: 250, easing: Easing.CubicInOut);
         }
 
         private void OnSidebarMenuItemSelected(object sender, string pageName)
@@ -60,32 +51,34 @@ namespace LojaApp.Pages
             // IsSidebarOpen = false; // Close sidebar after selection
         }
 
-        private void LoadContent(string pageName)
+        public void LoadContent(string pageName)
         {
-            // Clear existing content
             mainContentArea.Content = null;
 
-            // Dynamically load the appropriate ContentView based on pageName
             switch (pageName)
             {
                 case "Dashboard":
                     mainContentArea.Content = new DashboardView();
                     break;
-                case "produtos":
+
+                case "Produtos":
                     mainContentArea.Content = new CadastrarProdutosView();
                     break;
+
                 case "Estoque":
                     mainContentArea.Content = new GerenciarEstoqueView();
                     break;
+
                 case "Servico":
                     mainContentArea.Content = new CadastroServicoView();
                     break;
+
                 default:
-                    mainContentArea.Content = new DashboardView(); // Fallback
+                    mainContentArea.Content = new DashboardView();
                     break;
             }
         }
-      
+
 
     }
 

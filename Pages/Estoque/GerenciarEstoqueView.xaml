@@ -2,50 +2,282 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LojaApp.Pages.Estoque.GerenciarEstoqueView">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout
+Padding="10,20" Spacing="15"
+        >
 
 
-        
+            <HorizontalStackLayout  HorizontalOptions="End">
+<Label
+                 Text="Procurar por ordem de Serviço"
+                 HorizontalOptions="Start"
+                 Style="{StaticResource Headline}"
+                 SemanticProperties.HeadingLevel="Level1" />
+                
+                <Button Text="✎ Criar nova ordem de serviço"
+        BackgroundColor="DarkRed"
+        TextColor="White"/>
 
-        <Label Text="Estoque de Produtos" 
-            FontSize="20" 
-            FontAttributes="Bold"
-            HorizontalOptions="Center" />
 
-        <!-- Cabeçalho -->
-        <Grid ColumnSpacing="10" Padding="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="1.5*" />
-                <ColumnDefinition Width="1.5*" />
-            </Grid.ColumnDefinitions>
 
-            <Label Text="Produto" FontAttributes="Bold" />
-            <Label Grid.Column="1" Text="Categoria" FontAttributes="Bold" />
-            <Label Grid.Column="2" Text="Qtd." FontAttributes="Bold" HorizontalTextAlignment="End"/>
-            <Label Grid.Column="3" Text="Mín." FontAttributes="Bold" HorizontalTextAlignment="End"/>
-        </Grid>
+            </HorizontalStackLayout>
 
-        <!-- Lista de produtos -->
-        <CollectionView x:Name="estoqueCollection" SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnSpacing="10" Padding="5" BackgroundColor="{Binding EstoqueBaixo, Converter={StaticResource BoolToColorConverter}}" Margin="0,2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="1.5*" />
-                            <ColumnDefinition Width="1.5*" />
-                        </Grid.ColumnDefinitions>
 
-                        <Label Text="{Binding Nome}" />
-                        <Label Grid.Column="1" Text="{Binding Categoria}" />
-                        <Label Grid.Column="2" Text="{Binding Quantidade}" HorizontalTextAlignment="End"/>
-                        <Label Grid.Column="3" Text="{Binding EstoqueMinimo}" HorizontalTextAlignment="End"/>
+            <Grid Padding="10" ColumnSpacing="20" ColumnDefinitions="*"  RowDefinitions="*,*">
+
+
+                <!-- 🧾 Filtro PRINCIPAL -->
+                <Grid Grid.Row="0" BackgroundColor="#1C1C1C" ColumnDefinitions="*,*,*,*" Padding="10" ColumnSpacing="20" RowSpacing="15" >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Linha 1: Nome + CPF -->
+
+                    <VerticalStackLayout  Grid.Row="0" Spacing="10">
+
+                        
+
+                        <Label Text="Dados do Cliente"
+                TextColor="White"
+                FontSize="18"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"/>
+                        <Grid  ColumnSpacing="10" RowSpacing="20" ColumnDefinitions="*,*"  RowDefinitions="*,*">
+
+
+                            <Entry Placeholder="Nome Cliente" Grid.Column="0" Grid.Row="0"
+                           BackgroundColor="#2C2C2C" TextColor="White" 
+                           HorizontalOptions="FillAndExpand" />
+
+                            <Entry Placeholder="CPF Cliente" Grid.Column="1" Grid.Row="0"
+                           BackgroundColor="#2C2C2C" TextColor="White"/>
+
+                            <Entry Placeholder="Email" Grid.Column="0" Grid.Row="1"
+                            BackgroundColor="#2C2C2C" TextColor="White" 
+                            HorizontalOptions="FillAndExpand" />
+
+                            <Entry Placeholder="Telefone" Grid.Column="1" Grid.Row="1"
+                            BackgroundColor="#2C2C2C" TextColor="White"/>
+
+
+                        </Grid>
+                    </VerticalStackLayout>
+                    <!-- Linha 2: Tipo Serviço -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="10">
+                        <Label Text="Dados do Serviço"
+                             TextColor="White"
+                             FontSize="18"
+                             FontAttributes="Bold"
+                             HorizontalOptions="Start"/>
+
+                        <Grid  ColumnSpacing="10" RowSpacing="20" ColumnDefinitions="*,*"  RowDefinitions="*,*">
+
+
+                            <Entry Placeholder="Numero de ordem de serviço" Grid.Column="0" Grid.Row="0"
+                            BackgroundColor="#2C2C2C" TextColor="White" 
+                            HorizontalOptions="FillAndExpand" />
+
+                            <Entry Placeholder="Status do seviço" Grid.Column="1" Grid.Row="0"
+                            BackgroundColor="#2C2C2C" TextColor="White"/>
+
+                        </Grid>
+                        <Entry Placeholder="Tipo de Serviço" Grid.Column="1" Grid.Row="1"
+                           BackgroundColor="#2C2C2C" TextColor="White"/>
+                        <Entry Placeholder="Descrição do problema" Grid.Column="1" Grid.Row="1"
+                             BackgroundColor="#2C2C2C" TextColor="White"/>
+                    </VerticalStackLayout>
+
+                    <!-- Linha 3: Materiais + Pesquisa -->
+                    <!--  <VerticalStackLayout Grid.Row="2" Spacing="10">
+
+                    <Label Text="Outros Serviços Realizados"
+                TextColor="White"
+                FontSize="18"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"/>
+
+                    <Frame BackgroundColor="#2A2A2A" CornerRadius="10" Padding="5">
+                        <CollectionView ItemsSource="{Binding Material}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="#3A3A3A" CornerRadius="5" Padding="10" Margin="5">
+                                        <HorizontalStackLayout Spacing="55">
+                                            <Label Text="Numero" TextColor="White" FontAttributes="Bold"/>
+
+                                            <Label Text="{Binding Produto}" TextColor="White" FontAttributes="Bold"/>
+
+                                            <Label Text="Quantidade:" TextColor="LightGray"  FontSize="10"/>
+                                            <Label Text="{Binding Quantidade}" TextColor="LightGray"  FontSize="10"/>
+
+                                            <Label Text="ValorUnitario:" TextColor="LightGray"  FontSize="10"/>
+                                            <Label Text="{Binding ValorUnitario}" TextColor="Gray" FontSize="10"/>
+
+
+                                            <Label Text="ValorTotal:" TextColor="LightGray"  FontSize="10"/>
+                                            <Label Text="{Binding ValorTotal}" TextColor="Gray" FontSize="10"/>
+
+
+
+                                        </HorizontalStackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Frame>
+
+            </VerticalStackLayout> -->
+
+                    <!-- Linha 4: Observações -->
+
+                    <VerticalStackLayout Grid.Column="2" Spacing="10">
+
+                        <Label Text="Observações"
+                TextColor="White"
+                FontSize="18"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"/>
+
+                        <Editor Placeholder="Observações"
+                BackgroundColor="#2C2C2C" TextColor="White"
+                HeightRequest="100"/>
+
+                    </VerticalStackLayout>
+
+                    <!-- Linha 5: Código + Botão -->
+                    <VerticalStackLayout Grid.Column="3" Spacing="10">
+                        <Label Text="Informações adcionais"
+                            TextColor="White"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Start"/>
+
+                        <Label Text="Data e Hora"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"/>
+
+                        <Label Text="Método de Pagamento"
+                            TextColor="White"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Start"/>
+
+                        <Grid  ColumnSpacing="10" RowSpacing="20" ColumnDefinitions="*,*"  RowDefinitions="*,*">
+
+
+                            <Entry Placeholder="Limpar Campis" Grid.Column="0" Grid.Row="0"
+                         BackgroundColor="#2C2C2C" TextColor="White" 
+                         HorizontalOptions="FillAndExpand" />
+
+                            <Entry Placeholder="Buscar" Grid.Column="1" Grid.Row="0"
+                          BackgroundColor="#2C2C2C" TextColor="White"/>
+
+
+
+
+
+                        </Grid>
+                    </VerticalStackLayout>
+
+                </Grid>
+
+
+                <!-- 📋 COLUNA LATERAL - OUTROS SERVIÇOS -->
+                <VerticalStackLayout Grid.Row="1"  Spacing="15" Background="gray"
+                      
+                     Margin="0,0,0,0">
+                   
+
+                    
+
+                    
+
+                    <Grid  ColumnSpacing="0" RowDefinitions="*">
+                       
+                        <Frame
+                        CornerRadius="10"
+                        Padding="10"
+                        BackgroundColor="#2C2C2C"
+                        BorderColor="#3D3D3D"
+                        HasShadow="True"
+                        Margin="10">
+
+                            
+
+                            <StackLayout Spacing="10">
+
+                                <!-- Cabeçalho com número do pedido e nome -->
+                                <Grid ColumnSpacing="10" ColumnDefinitions="*,*,*,*,*,*,*,*,*" >
+
+                                    <StackLayout Grid.Column="0" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="□□□□□□□□□□□" FontSize="16" TextColor="White" />
+                                        
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="Mangueira Hidraulica" FontSize="16" TextColor="White" />
+                                    </StackLayout>
+                                    
+                                    <StackLayout Grid.Column="2" VerticalOptions="Center" Spacing="3">
+                                        <Image Source="dotnet_bot.png"></Image>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Grid.Column="3" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="Categoria" FontSize="12" TextColor="LightGray" />
+                                        <Label Text="mg-Hidraulica" FontSize="16" TextColor="White" />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="4" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="|" FontSize="16" TextColor="White" />
+                                        
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="5" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="Status" FontSize="12" TextColor="LightGray" />
+                                        <Label Text="Em Estoque" FontSize="16" TextColor="White" />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="6" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="Preço de Venda" FontSize="12" TextColor="LightGray" />
+                                        <Label Text="R$25,12" FontSize="16" TextColor="White" />
+                                        <Label Text="(Por metro)" FontSize="12" TextColor="LightGray" />
+
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="7" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="✏️" FontSize="16" TextColor="White" />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="8" VerticalOptions="Center" Spacing="3">
+                                        <Label Text="🗑️" FontSize="16" TextColor="White" />
+                                        
+                                    </StackLayout>
+
+                                    
+
+                                    
+
+
+                                </Grid>
+
+                                
+
+                            </StackLayout>
+                        </Frame>
+
                     </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Grid>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentView>
